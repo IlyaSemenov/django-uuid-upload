@@ -5,10 +5,10 @@ import uuid
 
 
 def upload_to_uuid(path, make_dir=False, remove_qs=True):
-    return functools.partial(upload_to_uuid_impl, path=path, make_dir=make_dir, remove_qs=remove_qs)
+    return functools.partial(_upload_to_uuid_impl, path=path, make_dir=make_dir, remove_qs=remove_qs)
 
 
-def upload_to_uuid_impl(instance, filename, path, make_dir, remove_qs):
+def _upload_to_uuid_impl(instance, filename, path, make_dir, remove_qs):
     if remove_qs:
         filename = re.sub(r'\?.*', '', filename)
 
